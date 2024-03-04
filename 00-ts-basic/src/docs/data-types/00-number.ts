@@ -4,6 +4,8 @@ let edad: number = 30;
 //Tipo de dato número flotante  
 let altura: number = 1.75;
 
+let ponderacion: number = edad % altura;
+
 //Tipo de dato número hexadecimal
 let hex: number = 0xf00d; //base 16 0 - 9 y A - F
 
