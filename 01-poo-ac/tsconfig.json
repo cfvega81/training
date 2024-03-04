@@ -1,0 +1,22 @@
+//tsconfij.json
+{
+    "compileOnSave": false,
+    "compilerOptions": {
+        "noImplicitAny": false,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "moduleResolution": "Node",
+        "lib": [
+            "es2017"
+        ],
+        "types": [
+            "node"
+        ],
+        "sourceMap": true,
+        "baseUrl": "./src"
+    },
+    "exclude": [
+        "node_modules",
+        "**/*.spec.ts"
+    ]
+}

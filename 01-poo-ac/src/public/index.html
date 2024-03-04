@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control Panel</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/all.min.css">
+    <link rel="stylesheet" href="styles/index.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <h1>AC Control Panel</h1>
+            </div>
+        </div>
+        <div class="row mb-2">
+            <div class="col-sm-4 text-center">
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-default power">
+                        <i class="fa-solid fa-power-off" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="col-sm-4 text-center">
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-default inc">
+                        <i class="fa-solid fa-plus" aria-hidden="true"></i>
+                    </button>
+                    <button type="button" class="btn btn-default dec">
+                        <i class="fa-solid fa-minus" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="col-sm-4 text-center">
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-default mode">
+                        <i class="" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="panel panel-default room">
+                    <div class="panel-heading">Room</div>
+                    <div class="panel-body text-center">
+                        <b></b>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="panel panel-default display">
+                    <div class="panel-heading">Display</div>
+                    <div class="panel-body">
+                        <table class="table table-bordered">
+                            <colgroup>
+                                <col class="col-sm-6">
+                                <col class="col-sm-6">
+                            </colgroup>
+                            <tr>
+                                <th>Power</th>
+                                <td class="power"></td>
+                            </tr>
+                            <tr>
+                                <th>Temperature</th>
+                                <td class="temp"></td>
+                            </tr>
+                            <tr>
+                                <th>Mode</th>
+                                <td class="mode"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-5">
+                <div class="panel panel-default actions">
+                    <div class="panel-heading">Actions</div>
+                    <div class="panel-body">
+                        <ul class="list-group">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.4/socket.io.min.js"></script>
+    <script src="scripts/init.js" type="text/javascript"></script>
+    <script src="scripts/io.js" type="text/javascript"></script>
+    <script src="scripts/index.js" type="text/javascript"></script>
+</body>
+
+</html>

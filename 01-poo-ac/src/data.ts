@@ -1,0 +1,22 @@
+import { Blades } from "interfaces/blades";
+import { ChangeTemperature } from "services-interface/change-temperature";
+import { Compressor } from "interfaces/compressor";
+import { ControlPanel } from "interfaces/control-panel";
+import { Cpu } from "interfaces/cpu";
+import { Fan } from "interfaces/fan";
+import { Room } from "interfaces/room";
+import { SendMessage } from "services-interface/send-message";
+import { Thermostat } from "interfaces/thermostat";
+import { Token } from "typedi";
+import { AffectationTemperature } from "services-interface/affectation-temperature";
+
+export const CPU_SERVICE = new Token<Cpu>("CPU_SERVICE");
+export const COMPRESSOR_SERVICE = new Token<Compressor>("COMPRESSOR_SERVICE");
+export const THERMOSTAT_SERVICE = new Token<Thermostat>("THERMOSTAT_SERVICE");
+export const FAN_SERVICE = new Token<Fan>("FAN_SERVICE");
+export const BLADES_SERVICE = new Token<Blades>("BLADES_SERVICE");
+export const ROOM_SERVICE = new Token<Room>("ROOM_SERVICE");
+export const CONTROL_PANEL_SERVICE = new Token<ControlPanel>("CONTROL_PANEL_SERVICE");  
+export const CHANGE_TEMPERATURE_SERVICE = new Token<ChangeTemperature>("CHANGE_TEMPERATURE_SERVICE");
+export const SEND_MESSAGE_SERVICE = new Token<SendMessage>("SEND_MESSAGE_SERVICE");
+export const AFFECTATION_TEMPERATURE_SERVICE = new Token<AffectationTemperature>("AFFECTATION_TEMPERATURE_SERVICE");
