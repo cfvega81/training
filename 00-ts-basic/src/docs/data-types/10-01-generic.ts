@@ -13,7 +13,7 @@ interface Automovil {
 
 interface Tractor extends Automovil {  numEjes: number; }
 interface Trailer extends Automovil { numRemolques: number; }
-interface Sedan extends Automovil { numPuertas: number; }
+interface TipoSedan extends Automovil { numPuertas: number; }
 
 interface Moto { marca: string; cilindraje: number; }
 
@@ -40,12 +40,12 @@ class TrailerFactory implements AutoFactory<Trailer> {
     }
 }
 
-class SedanFactory implements AutoFactory<Sedan> {
-    reparar(auto: Sedan) { //Polimorfismo
+class SedanFactory implements AutoFactory<TipoSedan> {
+    reparar(auto: TipoSedan) { //Polimorfismo
         console.log('Reparando sedan', auto);
         console.log('Poniendo aceite', auto);
     }
-    create(): Sedan {
+    create(): TipoSedan {
         return { marca: 'Chevrolet', modelo: '2020', numPuertas: 4 };
     }
 }
@@ -59,9 +59,9 @@ function createAutomovilFactory(tipo: TipoAutomovil): AutoFactory<Automovil> {
 }
 
 let tractorFactory = createAutomovilFactory(TipoAutomovil.Tractor);
-let tractor = tractorFactory.create();
-console.log(tractor); // { marca: 'Nissan', modelo: '2020', numEjes: 2 }
+let _tractor = tractorFactory.create();
+console.log(_tractor); // { marca: 'Nissan', modelo: '2020', numEjes: 2 }
 
 let trailerFactory = createAutomovilFactory(TipoAutomovil.Trailer);
-let trailer = trailerFactory.create();
+let _trailer = trailerFactory.create();
 console.log(trailer); // { marca: 'Toyota', modelo: '2020', numRemolques: 2 }
