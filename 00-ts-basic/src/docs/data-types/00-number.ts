@@ -1,4 +1,4 @@
-//Tipo de dato número númoer 2
+//Tipo de dato número
 let edad: number = 30;
 
 //Tipo de dato número flotante  
