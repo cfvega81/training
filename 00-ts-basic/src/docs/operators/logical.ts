@@ -33,7 +33,7 @@ console.log(!!''); // false
 console.log(!!'hola'); // true
 
 // Operador de negación
-console.log(!null); // true
+console.log(!null); // true - "si no existe"
 console.log(!undefined); // true
 console.log(!!null); // false
 console.log(!!undefined); // false
@@ -43,6 +43,10 @@ console.log(!{}); // false
 console.log(![]); // false
 console.log(!!{}); // true
 console.log(!![]); // true
+
+if ({}) console.log('verdadero');
+if ([]) console.log('verdadero');
+if (null) { console.log('jamas va entrar') }
 
 // Operador igualdad
 console.log(1 == 1); // true

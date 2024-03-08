@@ -80,7 +80,11 @@ export abstract class Receta {
 
     public cocinar(): void {
         this.limpiarAreaTrabajo();
-        this.prepararInstrumentos();
+        const instrumentos = this.prepararInstrumentos();
+        console.log('Preparando los siguientes instrumentos');
+        instrumentos.forEach((paso, ndx) => { 
+            console.log(` - ${paso}`);
+        });
 
         const pasos = this.ejecutarPasosReceta();
         console.log('Preparando receta', this.constructor.name);
@@ -95,9 +99,7 @@ export abstract class Receta {
         console.log('Limpiando area de trabajo');
     }
 
-    public prepararInstrumentos(): void {
-        console.log('Preparando instrumentos');
-    }
+    public abstract prepararInstrumentos(): string[];
 
     public abstract ejecutarPasosReceta(): string[];
 
@@ -107,12 +109,20 @@ export abstract class Receta {
 }
 
 export class TacosReceta extends Receta {
+    public prepararInstrumentos(): string[] {
+        return ['Plato', 'Cuchillo', 'Tabla', 'Cucharon'];
+    }
+
     public ejecutarPasosReceta(): string[] {
         return ['Poner tortilla', 'Poner carne', 'Poner salsa'];
     }
 }
 
 export class PizzaReceta extends Receta {
+    public prepararInstrumentos(): string[] {
+        return ['Charola', 'Cortador de Pizza'];
+    }
+
     public ejecutarPasosReceta(): string[] {
         return ['Poner masa', 'Poner salsa', 'Poner queso', 'Poner ingredientes'];
     }
