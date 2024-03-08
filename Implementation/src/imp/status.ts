@@ -1,7 +1,9 @@
 
 //Class
-import { Archer } from "../classes/archer";
-
+import { Archer } from "./classes/archer";
+import { Mage } from "./classes/mage";
+import { Paladin } from "./classes/paladin";
+import { Warrior } from "./classes/warrior";
 
 //Weapons
 import { Magic } from "../imp/weapons/magic"; 
@@ -11,7 +13,8 @@ import { Bow, FireArrow, IceArrow, LongBow, NormalArrow, PoisonArrow, ShortBow, 
 import { Player } from "./Player";
 import { Boss_Goblin } from "./npc/boss_goblin";
 import { Weapon } from "./weapons/weapon";
-import { Mage } from "../classes/mage";
+
+
 
 
 // Se crea una instancia de Player pasando el nombre como argumento al constructor

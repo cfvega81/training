@@ -1,5 +1,6 @@
-import { Magic } from "../imp/weapons/magic";
-import { Sword } from "../imp/weapons/sword";
+import { Magic } from "../weapons/magic";
+import { Sword } from "../weapons/sword";
+
 
 
 export class Paladin {

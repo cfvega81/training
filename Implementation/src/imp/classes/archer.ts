@@ -1,16 +1,15 @@
-import { Sword } from "../imp/weapons/sword";
+import { Bow } from "../weapons/bow";
 
 
-
-export class Warrior {
-    weapon: Sword;
+export class Archer {
+    weapon: Bow;
     
-    constructor(weapon: Sword) {
+    constructor(weapon: Bow) {
         this.weapon = weapon;
     }
 
     class_Name() {
-        console.log("Class: Warrior");
+        console.log("Class: Archer");
     }
 
     dataDamage() {
@@ -25,6 +24,7 @@ export class Warrior {
         }
     }
 
+    toString(): string {
+        return `${this.constructor.name} has a {${this.weapon}} like weapon`;
+    }
 }
-
-

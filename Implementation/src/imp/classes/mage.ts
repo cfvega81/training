@@ -1,4 +1,5 @@
-import { Magic } from "../imp/weapons/magic";
+import { Magic } from "../weapons/magic";
+
 
 
 
