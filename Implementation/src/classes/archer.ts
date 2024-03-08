@@ -1,5 +1,4 @@
 import { Bow } from "../imp/weapons/bow";
-import { Weapon } from "../imp/weapons/weapon";
 
 export class Archer {
     weapon: Bow;
@@ -22,5 +21,9 @@ export class Archer {
         else{
             return { total_damage: 0, damage_type: "" }; 
         }
+    }
+
+    toString(): string {
+        return `${this.constructor.name} has a {${this.weapon}} like weapon`;
     }
 }
