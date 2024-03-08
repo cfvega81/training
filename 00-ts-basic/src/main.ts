@@ -11,9 +11,13 @@
 // console.log("--------------------------------------------------");
 // console.log("ABSTRACTAS");
 // console.log("--------------------------------------------------");
-import 'examples/poo/05-abstraccion';
+//import 'examples/poo/05-abstraccion';
 
 //import 'examples/pattern desings/00-factory-method';
 //import 'examples/pattern desings/01-abstract-factory';
 //import 'examples/pattern desings/02-singleton';
+
+//import 'examples/pattern desings/creationals/04-prototype';
+
+import 'examples/pattern desings/structural/00-adapter';
 

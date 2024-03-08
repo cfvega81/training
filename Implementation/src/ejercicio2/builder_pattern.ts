@@ -42,7 +42,7 @@ export abstract class Zapatos{
     public abstract pasosConfeccion(): string[];
 }
 
-export class Zapatos_Elegantes extends Zapatos {
+export class ZapatosElegantes extends Zapatos {
     public usarMateriales(): string[] {
         return ['Cuero', 'Gamuza', 'Charol']
     }
@@ -54,7 +54,7 @@ export class Zapatos_Elegantes extends Zapatos {
     }
 }
 
-export class Tenis_Deportivos extends Zapatos {
+export class TenisDeportivos extends Zapatos {
     public usarMateriales(): string[] {
         return ['Malla transpirable', 'Caucho', 'Refuerzos sintéticos']
     }
@@ -66,10 +66,10 @@ export class Tenis_Deportivos extends Zapatos {
     }
 }
 
-const zapatos_elegantes = new Zapatos_Elegantes();
+const zapatos_elegantes = new ZapatosElegantes();
 
 zapatos_elegantes.confeccionar();
 
-const tenis_deportivos = new Tenis_Deportivos();
+const tenis_deportivos = new TenisDeportivos();
 
 tenis_deportivos.confeccionar();
