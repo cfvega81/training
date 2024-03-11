@@ -1,6 +1,6 @@
+// console.log("--------------------------------------------------");
+// console.log("STATUS");
+// console.log("--------------------------------------------------");
+// import "./imp/status";
 console.log("--------------------------------------------------");
-console.log("STATUS");
-console.log("--------------------------------------------------");
-import "./imp/status";
-console.log("--------------------------------------------------");
-import "./ejercicio2/builder_pattern"
+import "./ejercicio3/design_patterns"
