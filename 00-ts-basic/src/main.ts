@@ -19,5 +19,10 @@
 
 //import 'examples/pattern desings/creationals/04-prototype';
 
-import 'examples/pattern desings/structural/00-adapter';
+//import 'examples/pattern desings/structural/00-adapter';
+//import 'examples/pattern desings/structural/01-bridge';
+//import 'examples/pattern desings/structural/01-no-bridge';
+//import 'examples/pattern desings/behavior/00-observer';
+//import 'examples/pattern desings/behavior/01-command';
+import 'examples/pattern desings/creationals/05-repository';
 
