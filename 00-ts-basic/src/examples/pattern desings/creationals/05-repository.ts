@@ -11,10 +11,19 @@ const { DOMParser, XMLSerializer } = require('@xmldom/xmldom')
         abstract getAll(): T[];
     }
     
-    interface Student {
+    interface Record {
+        id: number;
+    }
+
+    interface Student extends Record {
         id: number;
         name: string;
         group_id: number;
+    }
+
+    interface Group extends Record {
+        id: number;
+        name: string;
     }
 
     class TextRepository extends Repository<Student> {
@@ -69,7 +78,7 @@ const { DOMParser, XMLSerializer } = require('@xmldom/xmldom')
             return result;
         }
         toString() {
-            return `<students>${this.xml}</students>}`;
+            return `<students>${this.xml}</students>`;
         }
 
         getValue(tag: string, node: any) {
@@ -95,4 +104,129 @@ const { DOMParser, XMLSerializer } = require('@xmldom/xmldom')
     repo.add({id: 3, name: "Maria", group_id: 2});
     console.log(repo.getAll());
     console.log(`${repo}`);   
+
+
+    interface DbDriver {
+        execute(sql: string): any;
+    }
+
+    class SqlDbDriver implements DbDriver {
+        students: Student[] = [];
+        groups: Group[] = [];
+
+        private connection: any;
+        constructor() {
+            console.log(`Connecting to  ${this.constructor.name}`);
+            this.connection = {
+                query: (sql: string): any[] => {
+                    console.log(`Executing: ${sql}`);
+                    return [];
+                }
+            }
+        }
+        execute(sql: string):any {
+            return this.connection.query(sql);
+        }
+    }
+
+    class OracleDbDriver implements DbDriver {
+        students: Student[] = [];
+        groups: Group[] = [];
+
+        private connection: any;
+        constructor() {
+            console.log(`Connecting to  ${this.constructor.name}`);
+            this.connection = {
+                execute: (sql: string): any[] => {
+                    console.log(`Executing: ${sql}`);
+                    return [];
+                }
+            }
+        }
+
+        execute(sql: string) {
+            return this.connection.execute(sql);
+        }
+    }
+
+    abstract class RepositoryV2 {
+        protected driver: DbDriver;
+        protected constructor(driver: DbDriver) {
+            this.driver = driver;
+        }
+        abstract add<T extends Record>(item: T);
+        abstract remove<T extends Record>(item: T);
+        abstract getAll<T extends Record>(where: (item: T) => boolean): T[];
+    }
+    
+    class SqlRepository extends RepositoryV2 {
+        constructor() {
+            super(new SqlDbDriver());
+        }
+
+        add<T extends Record>(item: T) {
+            this.driver.execute(`INSERT INTO ${item.constructor.name} VALUES (${item})`);
+        }
+        remove<T extends Record>(item: T) {
+            this.driver.execute(`DELETE FROM ${item.constructor.name} WHERE id = ${item.id}`);
+        }
+        getAll<T extends Record>(where: (item: T) => boolean): T[] {
+            return this.driver.execute(`SELECT * FROM ${where.name}`).map((record: any) => {
+                let [id, name, group_id] = record.split(this.driver.execute(`SELECT * FROM ${where.name}`));
+                return {
+                    id: parseInt(id),
+                    name,
+                    group_id: parseInt(group_id)
+                }
+            }).filter(where);
+        }
+    }   
+
+    class OracleRepository extends RepositoryV2 {
+        constructor() {
+            super(new OracleDbDriver());
+        }
+
+        add<T extends Record>(item: T) {
+            this.driver.execute(`INSERT ${item.constructor.name} VALUES (${item})`);
+        }
+        remove<T extends Record>(item: T) {
+            this.driver.execute(`DELETE FROM ${item.constructor.name} WHERE id = ${item.id}`);
+        }
+        getAll<T extends Record>(where: (item: T) => boolean): T[] {
+            return this.driver.execute(`SELECT * FROM $db.${where.name}`).map((record: any) => {
+                let [id, name, group_id] = record.split(this.driver.execute(`SELECT * FROM ${where.name}`));
+                return {
+                    id: parseInt(id),
+                    name,
+                    group_id: parseInt(group_id)
+                }
+            }).filter(where);
+        }
+    }
+
+    let group1: Group = {id: 1, name: "Group 1"}
+    let group2: Group = {id: 2, name: "Group 2"}
+
+    let student1: Student = {id: 1, name: "Juan", group_id: 1}
+    let student2: Student = {id: 2, name: "Pedro", group_id: 1}
+    let student3: Student = {id: 3, name: "Maria", group_id: 2}
+
+
+    let repo2: RepositoryV2 = new SqlRepository();
+    repo2.add(group1);
+    repo2.add(group2);
+    repo2.add(student1);
+    repo2.add(student2);
+    repo2.add(student3);
+    console.log(repo2.getAll<Student>((student) => student.group_id === 1));
+
+    repo2 = new OracleRepository();
+    repo2.add(group1);
+    repo2.add(group2);
+    repo2.add(student1);
+    repo2.add(student2);
+    repo2.add(student3);
+    console.log(repo2.getAll<Student>((student) => student.group_id === 1));
+
 }
