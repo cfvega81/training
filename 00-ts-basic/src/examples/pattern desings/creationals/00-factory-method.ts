@@ -4,12 +4,15 @@
 // Product - Celular
 // Concrete Products - GooglePixel, AppleIphone
 
+
+// Crea interface de celular
 interface Celular {
     llamar(): void;
     navegar(): void;
     sacarFoto(): void;
 }
 
+// Celular marca Google Pixel
 class GooglePixel implements Celular {
     llamar(): void {
         console.log('Llamando desde un Google Pixel');
@@ -22,6 +25,7 @@ class GooglePixel implements Celular {
     }
 }
 
+// Celular marca Apple Iphone
 class AppleIphone implements Celular {
     llamar(): void {
         console.log('Llamando desde un Apple Iphone');
@@ -34,6 +38,7 @@ class AppleIphone implements Celular {
     }
 }
 
+// Celular marca Smasung Galaxy
 class SamsungGalaxy implements Celular {
     llamar(): void {
         console.log('Llamando desde un Samsung Galaxy');
@@ -46,6 +51,7 @@ class SamsungGalaxy implements Celular {
     }
 }
 
+// Celular marca Xiamo Redmi
 class XiaomiRedmi implements Celular {
     llamar(): void {
         console.log('Llamando desde un Xiaomi Redmi');
@@ -58,6 +64,7 @@ class XiaomiRedmi implements Celular {
     }
 }
 
+// Clase mayorita que lo implementan las empresas de celulares para crear sus celulares
 abstract class Mayorista {
     tipo: TipoCelular;
     public abstract createCelular(): Celular;

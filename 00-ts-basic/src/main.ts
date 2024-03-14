@@ -3,6 +3,8 @@
 // console.log("--------------------------------------------------");
 // import 'examples/poo/00-herencia';
 
+import "examples/pattern desings/creationals/01-abstract-factory"
+
 // console.log("--------------------------------------------------");
 // console.log("ESTADO");
 // console.log("--------------------------------------------------");
@@ -19,5 +21,5 @@
 
 //import 'examples/pattern desings/creationals/04-prototype';
 
-import 'examples/pattern desings/structural/00-adapter';
+// import 'examples/pattern desings/structural/00-adapter';
 

@@ -1,3 +1,4 @@
+
 enum Architecture {
     INTEL = 'intel',
     AMD = 'amd'
@@ -21,27 +22,33 @@ class AsusMotherboard implements Motherboard {
     architecture: Architecture = Architecture.INTEL;
     latency: Latency = Latency.LOW;
 }
+
 class MSIMotherboard implements Motherboard { 
     architecture: Architecture = Architecture.AMD;
     latency: Latency = Latency.LOW;
 }
+
 class GigabyteMotherboard implements Motherboard {
     architecture: Architecture = Architecture.INTEL;
     latency: Latency = Latency.HIGH;
 }
 
 interface CPU { architecture: Architecture; }
+
 class IntelCPU implements CPU {
     architecture: Architecture = Architecture.INTEL;
 }
+
 class AMDCPU implements CPU { 
     architecture: Architecture = Architecture.AMD;
 }
 
 interface RAM { latency: Latency; }
+
 class KingstonRAM implements RAM { 
     latency: Latency = Latency.LOW;
  }
+ 
 class CorsairRAM implements RAM {
     latency: Latency = Latency.HIGH;
  }
