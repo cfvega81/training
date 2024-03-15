@@ -12,8 +12,8 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$ng-ricardo-primary: mat.define-palette(mat.$indigo-palette);
-$ng-ricardo-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$ng-ricardo-primary: mat.define-palette(mat.$amber-palette);
+$ng-ricardo-accent: mat.define-palette(mat.$light-blue-palette, A200, A100, A400);
 
 // The warn palette is optional (defaults to red).
 $ng-ricardo-warn: mat.define-palette(mat.$red-palette);
@@ -38,4 +38,7 @@ $ng-ricardo-theme: mat.define-light-theme((
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: calc(100vh - 10px);}
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
