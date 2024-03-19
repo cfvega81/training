@@ -4,6 +4,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import * as fromComponents from './components';
 
+
 @NgModule({
   imports: [
     FormsModule,
@@ -21,6 +22,6 @@ import * as fromComponents from './components';
     CommonModule,
     ...fromComponents.components
   ]
-  
+
 })
 export class SharedModule { }
