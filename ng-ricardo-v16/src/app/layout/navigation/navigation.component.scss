@@ -1,3 +1,19 @@
 .space {
     flex: 1 1 auto;
 }
+
+img {
+    width: 50px; /* Ajusta el ancho de la imagen según sea necesario */
+    height: auto; /* Altura automática para mantener la proporción de la imagen */
+    display: block; /* Para alinear la imagen horizontalmente */
+    margin: 0 auto; /* Para centrar la imagen horizontalmente */
+  }
+
+  span {
+    padding: 15px;
+    font-size: 30px;
+  }
+
+  .font-size2 {
+    font-size: 20px;
+  }
