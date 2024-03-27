@@ -1,0 +1,10 @@
+<div class="card" *ngIf="data" routerLink="/panel/user/{{data.id}}">
+    <div class="card_img">
+        <img src="{{data.avatar}}" alt="">
+    </div>
+    <div class="card_info">
+        <h1>Nombre: {{data.name}}</h1>
+        <h3>Precio: {{data.age ? '$' + data.age : 'A cotizar'}}</h3>
+        <p>{{data.description}}</p>
+    </div>
+</div>

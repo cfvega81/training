@@ -1,38 +1,6 @@
-.font-size2 {
-    font-size: 20px;
-  }
-
-  .flex {
-    display: flex;
-    max-width: 100%;
-    flex-wrap: wrap;
-    column-gap: 1ex;
-    row-gap: 1em;
-   }
-
-   .ric-user{
-    display: flex;
-    align-items: center; /* Centra verticalmente los elementos */
-    &-img {
-      height: auto;
-      width: 300px;
-      border-radius: 5px;
-      box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 25);
-      margin-right: 20px;
-  }
-  &-info {
-    padding: 1rem;
-    border-left: 2px solid rgba(0, 0, 0, 20);
-    
-    p {
-        opacity: 0.5;
-    }
-   }
-  }
 
 
-  
-   .card {
+.card {
     margin-left: 15px;
     max-width: 400px;
     height: 250px;
@@ -54,7 +22,7 @@
         }
     }
     &_info {
-        border-left: 2px solid rgba(0, 0, 0, 20);
+        border-left: 1px solid rgba(0, 0, 0, 20);
         padding: 0.25rem;
         p {
             opacity: 0.5;

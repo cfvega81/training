@@ -1,23 +1,55 @@
-.space {
-    flex: 1;
+$img-size: 48px;
+
+.font-size2{
+  font-size: 20px;
 }
 
-img {
-    width: 50px; /* Ajusta el ancho de la imagen según sea necesario */
-    height: auto; /* Altura automática para mantener la proporción de la imagen */
-    display: block; /* Para alinear la imagen horizontalmente */
-    margin: 0 auto; /* Para centrar la imagen horizontalmente */
+@mixin margin-y-auto {
+  @include margin-y(auto);
+}
+
+@mixin margin-y($valor) {
+  margin-top: $valor;
+  margin-bottom: $valor;
+}
+
+:host {
+  mat-toolbar {
+    height: auto;
   }
 
-  span {
-    padding: 15px;
-    font-size: 30px;
-  }
+  .app-navigation_container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
 
-  .font-size2 {
-    font-size: 20px;
-  }
+    &-left, &-right {
+      display: flex;
+      flex-direction: row;
+      gap: 1ex;
+    }
 
-  .mat-toolbar button {
-    margin-right: 10px; /* Ajusta el margen derecho según sea necesario */
+    &-left {
+      img {
+        height: $img-size;
+        width: $img-size;
+        @include margin-y(5px)
+      }
+
+      span {
+        font-size: 32px;
+        @include margin-y-auto()
+      }
+    }
+
+    &-right {
+      button {
+        padding-left: 0;
+        padding-right: 0;
+        @include margin-y-auto()
+      }
+    }
+
   }
+}
