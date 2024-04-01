@@ -1,0 +1,40 @@
+:host {
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
+    grid-template-areas: 
+    "header" 
+    "search" 
+    "main" 
+    "footer";
+
+    height: calc(100% - 5px);
+    background-color: #2f2f2f;
+    border: 1px solid #000000;
+    color: #fff;
+}
+
+.b {
+    border: 1px solid transparent;
+}
+
+.cfv {
+    &-header {
+        text-align: center;
+        grid-area: header;
+        width: 100%;
+    }
+    &-search {
+        text-align: center;
+        grid-area: search;
+        width: 100%;
+    }
+    &-main {
+        grid-area: main;
+        width: 100%;
+    }
+    &-footer {
+        text-align: center;
+        grid-area: footer;
+        width: 100%;
+    }
+}

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ServiceProcess;
 
 namespace MigracionUsuariosAD_CM
 {
@@ -10,6 +6,8 @@ namespace MigracionUsuariosAD_CM
     {
         static void Main(string[] args)
         {
+            var service = new MigracionUsuariosAD_CM_Service();
+            ServiceBase.Run(service);
         }
     }
 }
