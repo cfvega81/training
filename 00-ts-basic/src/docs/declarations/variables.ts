@@ -20,6 +20,24 @@ valor5 = {};
 
 
 
+// Nomenclatura para nombrado de variables, funciones, clases, interfaces, etc
+// camelCase - es usado para nombrar variables, funciones, propiedades
+let nombreVariable: number = 10;
+
+// PascalCase - es usado para nombrar clases, interfaces, tipos, enums
+class NombreClase {
+    nombrePropiedad: number = 10;
+}
+
+enum NombreEnum {
+    Valor1,
+    Valor2
+}
+
+// UPPER_CASE - es usado para nombrar constantes
+const NOMBRE_CONSTANTE: number = 10;
+
+
 
 
 

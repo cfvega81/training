@@ -1,0 +1,6 @@
+$height : calc(100vh - 120px);
+.scroll {
+    min-height: $height;
+    max-height: $height;
+    overflow-y: scroll;
+}

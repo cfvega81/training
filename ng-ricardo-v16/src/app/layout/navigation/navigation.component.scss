@@ -1,0 +1,55 @@
+$img-size: 48px;
+
+.font-size2{
+  font-size: 20px;
+}
+
+@mixin margin-y-auto {
+  @include margin-y(auto);
+}
+
+@mixin margin-y($valor) {
+  margin-top: $valor;
+  margin-bottom: $valor;
+}
+
+:host {
+  mat-toolbar {
+    height: auto;
+  }
+
+  .app-navigation_container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+
+    &-left, &-right {
+      display: flex;
+      flex-direction: row;
+      gap: 1ex;
+    }
+
+    &-left {
+      img {
+        height: $img-size;
+        width: $img-size;
+        @include margin-y(5px)
+      }
+
+      span {
+        font-size: 32px;
+        @include margin-y-auto()
+      }
+    }
+
+    &-right {
+      button {
+        padding-left: 0;
+        padding-right: 0;
+        @include margin-y-auto()
+      }
+    }
+
+  }
+}

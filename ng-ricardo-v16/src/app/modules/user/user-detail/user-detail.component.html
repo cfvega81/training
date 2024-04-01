@@ -1,0 +1,10 @@
+<app-title-h1 type ="primary" text="Detalle de {{currentUser?.name}}"></app-title-h1>
+<div class="ric-user">
+    <img class="ric-user-img" src="{{currentUser?.avatar}}">
+    <div class="ric-user-info">
+        <h1>{{currentUser?.name}}</h1>
+        <h3>Precio: {{currentUser?.age ? currentUser?.age: 'A cotizar'}}</h3>
+        <p>{{currentUser?.description}}</p>
+    </div>
+</div>
+

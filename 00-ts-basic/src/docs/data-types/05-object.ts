@@ -16,6 +16,15 @@ obj4.nombre = 'Juan';
 obj4.edad = '30';
 obj4.peso = '80';
 
+//por keyname
+obj4['nombre'] = 'Juan';
+obj4['edad'] = '30';
+obj4['peso'] = '80';
+
+Object.entries(obj4).forEach(([key, value]) => {
+    console.log(`${key}: ${value}`);
+});
+
 
 
 
