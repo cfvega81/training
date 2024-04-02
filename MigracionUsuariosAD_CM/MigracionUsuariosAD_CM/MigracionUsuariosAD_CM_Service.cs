@@ -17,6 +17,7 @@ using System.ServiceProcess;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using static MigracionUsuariosAD_CM.Services.MigracionUsuarioService;
 
 namespace MigracionUsuariosAD_CM
 {
@@ -66,6 +67,8 @@ namespace MigracionUsuariosAD_CM
 
                     svcs.AddTransient<MigracionUsuariosJob>();
                     svcs.AddTransient<IMigracionUsuarioService, MigracionUsuarioService>();
+                    svcs.AddTransient<IUsuariosActiveDirectory, UsuariosActiveDirectory>();
+                    svcs.AddTransient<IUsuariosRepositorio, UsuariosRepositorio>();
 
                     svcs.AddQuartzHostedService(cfg =>
                     {

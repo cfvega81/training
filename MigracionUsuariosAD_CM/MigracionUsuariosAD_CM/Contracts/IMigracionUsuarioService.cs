@@ -10,4 +10,14 @@ namespace MigracionUsuariosAD_CM.Contracts
     {
         void Execute();
     }
+
+    public interface IUsuariosActiveDirectory
+    {
+
+    }
+
+    public interface IUsuariosRepositorio
+    {
+
+    }
 }
