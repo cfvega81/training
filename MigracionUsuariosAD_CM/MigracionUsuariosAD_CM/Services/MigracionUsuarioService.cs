@@ -27,12 +27,11 @@ namespace MigracionUsuariosAD_CM.Services
             logger.LogInformation("Start migration process");
             foreach (var dir in activeDirectory.Directories)
             {
-                public class UsuariosActiveDirectory : IUsuariosActiveDirectory { }
-                public class UsuariosRepositorio : IUsuariosRepositorio { }
-        //Consumir IUsuariosActiveDirectory.GetUsers(DirectoryModel) : Users[]
-        //Consumir  .SaveUsers(users: Users[])
 
-           }
-        }
+        //Consumir IUsuariosActiveDirectory.GetUsers(DirectoryModel) : Users[]
+        //Consumir  IUsuariosRepositorio.SaveUsers(users: Users[])
+
+    }
+}
     }
 }
