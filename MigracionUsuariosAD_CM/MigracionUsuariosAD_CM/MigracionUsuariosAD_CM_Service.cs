@@ -5,19 +5,11 @@ using Microsoft.Extensions.Logging;
 using MigracionUsuariosAD_CM.Contracts;
 using MigracionUsuariosAD_CM.Jobs;
 using MigracionUsuariosAD_CM.Models;
-using MigracionUsuariosAD_CM.Services;
+using MigracionUsuariosAD_CM.Repositories;
 using Quartz;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
-using System.Linq;
 using System.ServiceProcess;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using static MigracionUsuariosAD_CM.Services.MigracionUsuarioService;
 
 namespace MigracionUsuariosAD_CM
 {
@@ -68,7 +60,7 @@ namespace MigracionUsuariosAD_CM
                     svcs.AddTransient<MigracionUsuariosJob>();
                     svcs.AddTransient<IMigracionUsuarioService, MigracionUsuarioService>();
                     svcs.AddTransient<IUsuariosActiveDirectory, UsuariosActiveDirectory>();
-                    svcs.AddTransient<IUsuariosRepositorio, UsuariosRepositorio>();
+                    svcs.AddTransient<IUsuariosRepositorio, SQLServerRepositorio>();
 
                     svcs.AddQuartzHostedService(cfg =>
                     {

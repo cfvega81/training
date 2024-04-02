@@ -5,6 +5,10 @@ VisualStudioVersion = 17.9.34701.34
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MigracionUsuariosAD_CM", "MigracionUsuariosAD_CM\MigracionUsuariosAD_CM.csproj", "{FDD686B3-A5AE-44B8-8760-CE2C9EAE9F6B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MigracionUsuariosAD_CM.SqlServer", "MigracionUsuariosAD_CM.SqlServer\MigracionUsuariosAD_CM.SqlServer.csproj", "{CDC44C9C-3E67-4CA8-9914-A845BF01DDE2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MigracionUsuariosAD_CM.Common", "MigracionUsuariosAD_CM.Common\MigracionUsuariosAD_CM.Common.csproj", "{13BA99D2-50F1-4399-902D-31EFD807CF41}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{FDD686B3-A5AE-44B8-8760-CE2C9EAE9F6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FDD686B3-A5AE-44B8-8760-CE2C9EAE9F6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FDD686B3-A5AE-44B8-8760-CE2C9EAE9F6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CDC44C9C-3E67-4CA8-9914-A845BF01DDE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDC44C9C-3E67-4CA8-9914-A845BF01DDE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDC44C9C-3E67-4CA8-9914-A845BF01DDE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDC44C9C-3E67-4CA8-9914-A845BF01DDE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13BA99D2-50F1-4399-902D-31EFD807CF41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13BA99D2-50F1-4399-902D-31EFD807CF41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13BA99D2-50F1-4399-902D-31EFD807CF41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13BA99D2-50F1-4399-902D-31EFD807CF41}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

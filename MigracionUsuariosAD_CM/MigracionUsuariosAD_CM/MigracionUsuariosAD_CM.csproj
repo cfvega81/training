@@ -180,17 +180,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Contracts\IMigracionUsuarioService.cs" />
     <Compile Include="Jobs\MigracionUsuariosJob.cs" />
+    <Compile Include="Mappers\UsuarioMapper.cs" />
     <Compile Include="MigracionUsuariosAD_CM_Service.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="MigracionUsuariosAD_CM_Service.Designer.cs">
       <DependentUpon>MigracionUsuariosAD_CM_Service.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\ActiveDirectoryModel.cs" />
-    <Compile Include="Models\CronSettingsModel.cs" />
-    <Compile Include="Models\DirectoryModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="ProjectInstaller.cs">
       <SubType>Component</SubType>
@@ -200,6 +197,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\MigracionUsuarioService.cs" />
+    <Compile Include="Services\UsuariosActiveDirectory.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -216,6 +214,16 @@
     <EmbeddedResource Include="ProjectInstaller.resx">
       <DependentUpon>ProjectInstaller.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MigracionUsuariosAD_CM.Common\MigracionUsuariosAD_CM.Common.csproj">
+      <Project>{13ba99d2-50f1-4399-902d-31efd807cf41}</Project>
+      <Name>MigracionUsuariosAD_CM.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MigracionUsuariosAD_CM.SqlServer\MigracionUsuariosAD_CM.SqlServer.csproj">
+      <Project>{cdc44c9c-3e67-4ca8-9914-a845bf01dde2}</Project>
+      <Name>MigracionUsuariosAD_CM.SqlServer</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
