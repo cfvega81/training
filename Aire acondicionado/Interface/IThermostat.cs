@@ -7,7 +7,7 @@ using Aire_acondicionado.Services_interface;
 
 namespace Aire_acondicionado.Interface
 {
-    public interface IThermostat : ChangeTemperature
+    public interface IThermostat : IChangeTemperature
     {
 
     }

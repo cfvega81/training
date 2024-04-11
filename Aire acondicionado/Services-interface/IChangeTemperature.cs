@@ -7,7 +7,7 @@ using System.Reactive.Subjects; // Agrega esta línea para importar BehaviorSubj
 
 namespace Aire_acondicionado.Services_interface
 {
-    public interface ChangeTemperature
+    public interface IChangeTemperature
     {
         // Para emitir el cambio de temperatura
         BehaviorSubject<double> ChangedTemperature { get; }

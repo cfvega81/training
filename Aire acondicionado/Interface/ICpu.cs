@@ -9,15 +9,16 @@ namespace Aire_acondicionado.Interface
 {
     public interface ICpu : ITurnInterface, IAlterTemperatureInterface
     {
-        bool IsOn { get; set; }
-        string Mode { get; set; } 
-        double Temperature { get; set; }
-        double TempereturaMax { get; set; }
-        double TemperatureMin { get; set; }
-        string BladeStatus { get; set; }
-        ICompressor Compressor { get; set; }
-        IFan Fan { get; set; }
-        IThermostat Thermostat { get; set; }
+        bool isOn { get; set; }
+        string mode { get; set; }
+        double temperature { get; set; }
+        double temperetureMax { get; set; }
+        double temperatureMin { get; set; }
+        BladeStatus bladeStatus { get; set; }
+        IBlades blades { get; set; }
+        ICompressor compressor { get; set; }
+        IFan fan { get; set; }
+        IThermostat thermostat { get; set; }
 
         void ToggleBlades();
     }

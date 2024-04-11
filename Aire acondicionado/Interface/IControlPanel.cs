@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Aire_acondicionado.Interface
 {
-    public interface iControlPanel : ITurnInterface, IAlterTemperatureInterface
+    public interface IControlPanel : ITurnInterface, IAlterTemperatureInterface
     {
         ICpu Cpu { get; set; }
 

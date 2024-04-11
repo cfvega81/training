@@ -9,59 +9,101 @@ using Aire_acondicionado.Interface;
 
 namespace Aire_acondicionado.Implement
 {
-    internal class CpuDaewoo: ICpu
+    internal class CpuDaewoo: ICpu, IFan
     {
-        private readonly IBlades blade;
+        private readonly IBlades Blade;
+        private readonly ICompressor Compressor;
+        private readonly IFan Fan;
+        private readonly IThermostat Termostat;
+        private IDisposable changedTemperatureSubscription;
+        
+
 
         public CpuDaewoo(IBlades blade)
         {
-            this.blade = blade;
+            this.Blade = blade;
+            isOn = false;
+            temperature = 20;
+            temperetureMax = 30;
+            temperatureMin = 15;
+            
         }
 
-        public bool IsOn { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string Mode { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public double Temperature { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public double TempereturaMax { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public double TemperatureMin { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string BladeStatus { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public ICompressor Compressor { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public IBlades Blades { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public IFan Fan { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public IThermostat Thermostat { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public bool isOn {get;set;}
+        public string mode {get;set;}
+        public double temperature {get;set;}
+        public double temperetureMax {get;set;}
+        public double temperatureMin {get;set;}
+        public BladeStatus bladeStatus {get;set;}
+        public ICompressor compressor {get;set;}
+        public IFan fan { get;set;}
+        public IBlades blades {get;set;}
+        public IThermostat thermostat {get;set;}
+
         
+        public void IncrementTemperature()
+            
+        {
+            if (temperature < temperetureMax)
+            {
+                temperature++;
+            }
+        }
         public void DecrementTemperature()
         {
-            throw new NotImplementedException();
-        }
-
-        public void IncrementTemperature()
-        {
-            throw new NotImplementedException();
+            if (temperature > temperetureMax)
+            {
+                temperature++;
+            }
         }
 
         public void ToggleBlades()
         {
-            blade.Mode = blade.Mode switch
+            Blade.Mode = Blade.Mode switch
             {
                 BladeStatus.DOWN => BladeStatus.MIDDLE,
                 BladeStatus.MIDDLE => BladeStatus.UP,
                 BladeStatus.UP => BladeStatus.SPIN,
                 _ => BladeStatus.DOWN
             };
-        }
-
-        public void TurnOff()
-        {
-            throw new NotImplementedException();
+            Console.WriteLine(Blade.Mode);
         }
 
         public void TurnOn()
         {
-            throw new NotImplementedException();
+            isOn = true;
+            if (thermostat != null)
+            {
+                changedTemperatureSubscription = thermostat.ChangedTemperature.Subscribe(TemperatureChanged);
+            }
+            Console.WriteLine("CPU ON");
+        }
+
+
+        public void TurnOff()
+        {
+            isOn = false;
+            changedTemperatureSubscription.Dispose();
+            fan.TurnOff();
+            compressor.TurnOff();
+            Console.WriteLine("CPU OFF");
+        }
+        public void TemperatureChanged(double temperature)
+        {
+            if (temperature > this.temperature)
+            {
+                compressor.TurnOn();
+            }
+            else if (temperature < (this.temperature - 1))
+            {
+                compressor.TurnOff();
+            }
         }
     }
 
-        
+ 
+
+
 }
 
 

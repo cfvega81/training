@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Aire_acondicionado.Interface
 {
-    public interface Room
+    public interface IRoom
     {
-        double TemperatureMax { get; set; }
-        double Temperature { get; set; }
+        double temperatureMax { get; set; }
+        double temperature { get; set; }
         IDisposable RoomCreatedSubscription { get; set; } 
     }
 }
