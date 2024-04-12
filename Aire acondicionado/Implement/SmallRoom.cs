@@ -23,7 +23,8 @@ namespace Aire_acondicionado.Implement
 
         public SmallRoom(
             IAffectationTemperature affectationTemperatureService,
-            IChangeTemperature changeTemperatureService)
+            IChangeTemperature changeTemperatureService,
+            IThermostat thermostate)
         {
             this.affectationTemperatureService = affectationTemperatureService;
             this.changeTemperatureService = changeTemperatureService;
