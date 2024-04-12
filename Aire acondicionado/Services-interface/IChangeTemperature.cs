@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Reactive.Subjects; // Agrega esta línea para importar BehaviorSubject
+using System.Reactive.Subjects; 
 
 namespace Aire_acondicionado.Services_interface
 {

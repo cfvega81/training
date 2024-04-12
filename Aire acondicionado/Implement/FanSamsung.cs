@@ -11,6 +11,7 @@ namespace Aire_acondicionado.Implement
     {
         private bool isOn = false;
 
+        public FanSamsung() { Console.WriteLine("Fan samsung initalized"); }
         public void TurnOn()
         {
             if (!isOn)

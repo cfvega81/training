@@ -9,6 +9,6 @@ namespace Aire_acondicionado.Interface
 {
     public interface IThermostat : IChangeTemperature
     {
-
+        event Action<double> TemperatureChangeEvent;
     }
 }

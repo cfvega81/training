@@ -10,16 +10,15 @@ namespace Aire_acondicionado.Implement
 {
     public class AffectationTemperature : IAffectationTemperature
     {
-        public BehaviorSubject<int> AffectationTemperatureSubject { get; private set; }
+        public BehaviorSubject<double> AffectationTemperatureSubject { get; private set; }
 
         public AffectationTemperature()
         {
-            AffectationTemperatureSubject = new BehaviorSubject<int>(0);
+            AffectationTemperatureSubject = new BehaviorSubject<double>(0);
         }
 
-        public void AffectTemperature(int temperature)
+        public void AffectTemperature(double temperature)
         {
         }
     }
 }
-

@@ -9,7 +9,7 @@ namespace Aire_acondicionado.Services_interface
 {
     public interface IAffectationTemperature
     {
-        BehaviorSubject<int> AffectationTemperatureSubject { get; }
-        void AffectTemperature(int temperature);
+        BehaviorSubject<double> AffectationTemperatureSubject { get; }
+        void AffectTemperature(double temperature);
     }
 }

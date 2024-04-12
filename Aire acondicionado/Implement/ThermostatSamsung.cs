@@ -1,46 +1,57 @@
-﻿using System;
-using System.Reactive.Subjects;
-using System.Reactive.Disposables;
-using Aire_acondicionado.Constant;
-using Aire_acondicionado.Interface;
+﻿using Aire_acondicionado.Interface;
 using Aire_acondicionado.Services_interface;
+using System.Reactive.Subjects;
 
-namespace AireAcondicionado.Implement
+public class ThermostatSamsung : IThermostat
 {
-    public class ThermostatSamsung : IThermostat
+    private readonly IRoom room;
+    public event Action<double> TemperatureChangeEvent;
+
+    private readonly IChangeTemperature changeTemperatureService;
+    private IDisposable changedTemperatureSubscription;
+
+    // Utilizamos una variable para almacenar el BehaviorSubject
+    private BehaviorSubject<double> changedTemperatureSubject = new BehaviorSubject<double>(20);
+
+    public BehaviorSubject<double> ChangedTemperature => changedTemperatureSubject;
+
+    private string state = "Thermostat OFF";
+
+    public ThermostatSamsung(IChangeTemperature changeTemperatureService, IRoom room)
     {
-        private readonly IChangeTemperature changeTemperatureService;
-        private IDisposable changedTemperatureSubscription;
-        public BehaviorSubject<double> ChangedTemperature => new BehaviorSubject<double>(20);
-        private string state = "Thermostat OFF";
+        this.room = room;
+        this.room.TemperatureChangeEvent += Room_TemperatureChangeEvent;
+        Console.WriteLine("Thermostat Samsung initialized");
 
-        public ThermostatSamsung(
-            IChangeTemperature changeTemperatureService)
-        {
-            this.changeTemperatureService = changeTemperatureService;
+        this.changeTemperatureService = changeTemperatureService;
 
-            InitService();
-        }
+        InitService();
+    }
 
-        private void InitService()
-        {
-            changedTemperatureSubscription = changeTemperatureService.ChangedTemperature.Subscribe(WhenTemperatureChanged);
-        }
+    private void Room_TemperatureChangeEvent(double temperature)
+    {
+        TemperatureChangeEvent?.Invoke(temperature);
+    }
 
-        private void WhenTemperatureChanged(double temperature)
-        {
-            state = "Thermostat ON";
-            ChangedTemperature.OnNext(temperature);
-        }
+    private void InitService()
+    {
+        changedTemperatureSubscription = changeTemperatureService.ChangedTemperature.Subscribe(WhenTemperatureChanged);
+    }
 
-        public void ChangeTemperature(double temperature)
-        {
-            throw new NotImplementedException();
-        }
+    private void WhenTemperatureChanged(double temperature)
+    {
+        state = "Thermostat ON";
+        changedTemperatureSubject.OnNext(temperature);
+    }
 
-        public void Finalize()
-        {
-            changedTemperatureSubscription.Dispose();
-        }
+    public void Finalize()
+    {
+        changedTemperatureSubscription.Dispose();
+        Console.WriteLine("Thermostat Samsung finalized");
+    }
+
+    public void ChangeTemperature(double temperature)
+    {
+
     }
 }

@@ -8,8 +8,9 @@ namespace Aire_acondicionado.Interface
 {
     public interface IRoom
     {
+        event Action<double> TemperatureChangeEvent;
         double temperatureMax { get; set; }
         double temperature { get; set; }
-        IDisposable RoomCreatedSubscription { get; set; } 
+        IDisposable RoomCreatedSubscription { get; set; }
     }
 }
