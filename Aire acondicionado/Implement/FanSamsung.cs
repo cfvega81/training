@@ -7,11 +7,18 @@ using Aire_acondicionado.Interface;
 
 namespace Aire_acondicionado.Implement
 {
+    //Hereda de IFan
     internal class FanSamsung : IFan
     {
         private bool isOn = false;
 
-        public FanSamsung() { Console.WriteLine("Fan samsung initalized"); }
+        //Constructor de FanSamsung
+        public FanSamsung() 
+        { 
+            //Al inicial la clase escribe esto, por eso esta en el construtcor
+            Console.WriteLine("Fan samsung initalized"); 
+        }
+
         public void TurnOn()
         {
             if (!isOn)

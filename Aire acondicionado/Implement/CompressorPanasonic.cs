@@ -1,43 +1,73 @@
-﻿using System.Reactive.Subjects;
-using Aire_acondicionado.Implement;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using Aire_acondicionado.Interface;
-using Aire_acondicionado.Services_interface;
+using Aire_acondicionado.Services;
+using Aire_acondicionado.Services_Contratc;
 
-internal class CompressorPanasonic : ICompressor
-{
-    private bool isOn = false;
+namespace Aire_acondicionado.Implement
+{   
+    // Hereda de la interfas Comprresor
+    internal class CompressorPanasonic : ICompressor
 
-    public CompressorPanasonic(IAffectationTemperature affectationTemperatureService)
-    {
-        this.affectationTemperatureService = affectationTemperatureService;
+    {   
+        //Inicio de valores
+        private bool isOn = false;
+        //Implementación de Timer
+        private readonly System.Timers.Timer timer;
+        int variation = -1;
+        //Almacena  los datos de la interface IAffectationTemperatureService en el campo affectationService
+        private readonly IAffectationTemperatureService affectationService;
 
-        Console.WriteLine("Compressor Panasonic initialized");
-    }
-    public IAffectationTemperature affectationTemperatureService { get; set; }
+        //Inyecta la interface IAffectationTemperatureService al constructor CompressorPanasonic
+        public CompressorPanasonic(IAffectationTemperatureService affectationService)
+        {
+            //Hace que el campo affectationService pueda llamar a los métodos de IAffectationTemperatureService
+            this.affectationService = affectationService;
+            //Crea un timer
+            timer = new System.Timers.Timer();
+            //Da un intervalo de 1 segundo
+            timer.Interval = 1000;
+            //Suscribe a timer al evento Elapsed, osea que cada vez que se cumple el intervalo, 
+            //se ejecuta el contenido del método Timer_Elapsed
+            timer.Elapsed += Timer_Elapsed;
+        }
 
-
-    public void TurnOn()
-    {
-        if (!isOn)
+        //Método encendido
+        public void TurnOn()
         {
             isOn = true;
-            affectationTemperatureService.AffectTemperature(1);
             Console.WriteLine("Compressor ON");
+            //Inicio el timer
+            timer.Start();
+
+
         }
-    }
 
-
-
-    public void TurnOff()
-    {
-        if (isOn)
+        //Metodo apagado
+        public void TurnOff()
         {
-            isOn = false;
-            affectationTemperatureService.AffectTemperature(0);
-            Console.WriteLine("Compressor OFF");
+            if (isOn)
+            {
+                isOn = false;
+                //Le da el valor de 0 al método AffectationTemperature que esta en IAffectationTemperatureService y
+                //se puede llamar por el campo affectationService
+                affectationService.AffectationTemperature(0);
+                Console.WriteLine("Compressor OFF");
+                //Para el timer
+                timer.Stop();
+            }
         }
+
+        //Método Timer_Elapsed
+        private void Timer_Elapsed(object? sender, System.Timers.ElapsedEventArgs e)
+        {
+            //Le manda el valor de variation a AffectationTemperature de la interface
+            //IAffectationTemperatureService
+            affectationService.AffectationTemperature(variation);
+        }
+
     }
-
-
-
 }
