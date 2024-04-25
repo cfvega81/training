@@ -1,0 +1,62 @@
+﻿<Window x:Class="Wpf.AC.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Wpf.AC"
+        mc:Ignorable="d"
+        Title="WPF AC" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="268*" />
+            <RowDefinition Height="65*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="AC Control Panel" HorizontalAlignment="Center" FontSize="24" Margin="0,10,0,20" Grid.Column="1" />
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,0,266,20" Grid.ColumnSpan="2">
+            <Button Content="Power" Click="PowerButton_Click" Command="{Binding PowerStatus}"/>
+            <StackPanel Orientation="Horizontal" Margin="20,0">
+                <Button Content="+"  Click="IncrementButton_Click" Width="17" />
+                <Button Content="-"  Click="DecrementButton_Click" Width="17" />
+            </StackPanel>
+            <Button Content="Mode" Click="ModeButton_Click" />
+        </StackPanel>
+
+        <GroupBox Header="Room" Grid.Row="2" Grid.Column="0" Margin="10,10,10,10" Grid.RowSpan="2">
+            <TextBlock Text="{Binding RoomName}" HorizontalAlignment="Center" FontSize="18" />
+        </GroupBox>
+
+        <GroupBox Header="Display" Grid.Row="2" Grid.Column="1" Margin="10,10,10,10" Grid.RowSpan="2">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="Power" Grid.Row="0" Grid.Column="0" Margin="5" />
+                <TextBlock Text="{Binding PowerStatus}" Grid.Row="0" Grid.Column="1" Margin="5" />
+                <TextBlock Text="Temperature" Grid.Row="1" Grid.Column="0" Margin="5" />
+                <TextBlock Text="{Binding Temperature}" Grid.Row="1" Grid.Column="1" Margin="5" />
+                <TextBlock Text="Mode" Grid.Row="2" Grid.Column="0" Margin="5" />
+                <TextBlock Text="{Binding Mode}" Grid.Row="2" Grid.Column="1" Margin="5" />
+            </Grid>
+        </GroupBox>
+
+        <GroupBox Header="Actions" Grid.Row="2" Grid.Column="2" Margin="10,10,10,10" Grid.RowSpan="2">
+            <ListBox ItemsSource="{Binding Actions}" />
+        </GroupBox>
+    </Grid>
+</Window>
